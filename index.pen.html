@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>家庭帳單中心</title>
+</head>
+
+<body>
+
+  <!-- 頁首 -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <div class="brand">💧 家庭帳單中心</div>
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li>
+            <a class="nav-link active" id="nav-water"
+               href="#" onclick="showPage('water'); return false;">水費</a>
+          </li>
+
+          <li>
+            <a class="nav-link" id="nav-power"
+               href="#" onclick="showPage('power'); return false;">電費</a>
+          </li>
+
+          <li>
+            <a class="nav-link" id="nav-gas"
+               href="#" onclick="showPage('gas'); return false;">瓦斯</a>
+          </li>
+
+          <li>
+            <a class="nav-link" id="nav-about"
+               href="#" onclick="showPage('about'); return false;">關於</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ==========================
+       水費頁面
+  ========================== -->
+
+  <main class="layout page active" id="page-water">
+
+    <!-- 統計卡片 -->
+    <section class="summary">
+
+      <div class="stat-card">
+        <span class="stat-label">本期用水度數</span>
+        <strong class="stat-value" id="summary-usage">110 度</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">本期用水費</span>
+        <strong class="stat-value" id="summary-total">1,107.75 元</strong>
+      </div>
+
+      <div class="stat-card warn">
+        <span class="stat-label">抄表方式</span>
+        <strong class="stat-value">隔月抄表</strong>
+      </div>
+
+    </section>
+
+
+    <!-- 水費計算器 -->
+    <section class="panel">
+
+      <h2 class="panel-title">水費計算器</h2>
+
+      <div class="card">
+
+        <h1>💧 水費計算器</h1>
+
+        <div class="subtitle">
+          依照分級費率計算（隔月抄表）
+        </div>
+
+        <label for="usage">這期實際用水度數</label>
+
+        <input
+          type="number"
+          id="usage"
+          placeholder="例如：110"
+          min="0"
+          step="any"
+        >
+
+        <button type="button" onclick="calculate()">
+          計算水費
+        </button>
+
+
+        <!-- 計算結果 -->
+        <div class="result">
+
+          <div class="result-row">
+            <span>第1段（0-20度）</span>
+            <span id="tier1">-</span>
+          </div>
+
+          <div class="result-row">
+            <span>第2段（21-60度）</span>
+            <span id="tier2">-</span>
+          </div>
+
+          <div class="result-row">
+            <span>第3段（61-100度）</span>
+            <span id="tier3">-</span>
+          </div>
+
+          <div class="result-row">
+            <span>第4段（101度以上）</span>
+            <span id="tier4">-</span>
+          </div>
+
+          <div class="result-row total">
+            <span>用水費總計</span>
+            <span id="total">-</span>
+          </div>
+
+        </div>
+
+        <div class="source">
+          資料來源：台灣自來水公司第五區管理處<br>
+          <a href="https://www.water.gov.tw/dist5/Subject/Detail/1288?nodeId=7816"
+             target="_blank">查看原始公告</a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 水費歷史紀錄 -->
+    <section class="panel">
+
+      <h2 class="panel-title">歷史用水紀錄</h2>
+
+      <table class="history">
+
+        <thead>
+          <tr>
+            <th>期別</th>
+            <th>用水度數</th>
+            <th>用水費（元）</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1-2月</td>
+            <td>35</td>
+            <td>288.75</td>
+          </tr>
+
+          <tr>
+            <td>3-4月</td>
+            <td>52</td>
+            <td>449.40</td>
+          </tr>
+
+          <tr>
+            <td>5-6月</td>
+            <td>75</td>
+            <td>698.25</td>
+          </tr>
+
+          <tr class="highlight">
+            <td>7-8月</td>
+            <td>110</td>
+            <td>1,107.75</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ==========================
+       電費頁面
+  ========================== -->
+
+  <main class="layout page" id="page-power">
+
+    <section class="summary">
+
+      <div class="stat-card">
+        <span class="stat-label">本期用電度數</span>
+        <strong class="stat-value">— 度</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">本期電費</span>
+        <strong class="stat-value">— 元</strong>
+      </div>
+
+      <div class="stat-card warn">
+        <span class="stat-label">狀態</span>
+        <strong class="stat-value">施工中</strong>
+      </div>
+
+    </section>
+
+    <section class="panel">
+
+      <h2 class="panel-title">電費</h2>
+
+      <div class="card">
+        <h1>⚡ 電費</h1>
+        <div class="subtitle">這一頁還沒做，等你來設計！</div>
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ==========================
+       瓦斯頁面
+  ========================== -->
+
+  <main class="layout page" id="page-gas">
+
+    <!-- 統計卡片 -->
+    <section class="summary">
+
+      <div class="stat-card">
+        <span class="stat-label">本期用氣度數</span>
+        <strong class="stat-value" id="gas-summary-usage">— 度</strong>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-label">本期瓦斯費</span>
+        <strong class="stat-value" id="gas-summary-total">— 元</strong>
+      </div>
+
+      <div class="stat-card warn">
+        <span class="stat-label">計算方式</span>
+        <strong class="stat-value">自行輸入單價</strong>
+      </div>
+
+    </section>
+
+
+    <!-- 瓦斯計算器 -->
+    <section class="panel">
+
+      <h2 class="panel-title">瓦斯費計算器</h2>
+
+      <div class="card">
+
+        <h1>🔥 瓦斯費計算器</h1>
+
+        <div class="subtitle">
+          輸入本期用氣度數及每度單價，自動計算瓦斯費
+        </div>
+
+        <label for="gasUsage">本期實際用氣度數</label>
+
+        <input
+          type="number"
+          id="gasUsage"
+          placeholder="例如：20"
+          min="0"
+          step="any"
+        >
+
+        <label for="gasPrice">每度瓦斯單價（元）</label>
+
+        <input
+          type="number"
+          id="gasPrice"
+          placeholder="例如：12"
+          min="0"
+          step="any"
+        >
+
+        <button type="button" onclick="calculateGas()">
+          計算瓦斯費
+        </button>
+
+
+        <!-- 計算結果 -->
+        <div class="result">
+
+          <div class="result-row">
+            <span>本期用氣度數</span>
+            <span id="gas-result-usage">-</span>
+          </div>
+
+          <div class="result-row">
+            <span>每度瓦斯單價</span>
+            <span id="gas-result-price">-</span>
+          </div>
+
+          <div class="result-row total">
+            <span>瓦斯費總計</span>
+            <span id="gas-total">-</span>
+          </div>
+
+        </div>
+
+        <div class="source">
+          計算方式：用氣度數 × 每度單價<br>
+          實際金額以當地瓦斯公司帳單為準。
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 瓦斯歷史紀錄 -->
+    <section class="panel">
+
+      <h2 class="panel-title">歷史用氣紀錄</h2>
+
+      <table class="history">
+
+        <thead>
+          <tr>
+            <th>期別</th>
+            <th>用氣度數</th>
+            <th>瓦斯費（元）</th>
+          </tr>
+        </thead>
+
+        <tbody id="gas-history">
+
+          <tr>
+            <td colspan="3">尚無用氣紀錄</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ==========================
+       關於頁面
+  ========================== -->
+
+  <main class="layout page" id="page-about">
+
+    <section class="panel">
+
+      <h2 class="panel-title">關於</h2>
+
+      <div class="card">
+
+        <h1>ℹ️ 關於這個網頁</h1>
+
+        <div class="subtitle">
+          這是練習用的網頁，資料僅供練習使用，實際金額以帳單為準。
+        </div>
+
+        <p>製作的人：＿＿＿＿</p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <p>資料僅供練習使用，實際金額以帳單為準。</p>
+  </footer>
+
+</body>
+</html>
